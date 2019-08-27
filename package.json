@@ -1,0 +1,50 @@
+{
+  "name": "tranlink-redis",
+  "version": "0.0.1",
+  "description": "call translink api and save response in redis to reduce call volumn to translink api",
+  "scripts": {
+    "dev": "nodemon ./index.js",
+    "start": "node ./index.js",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "pretest": "npm run lint",
+    "test": "jest --silent"
+  },
+  "keywords": [
+    "translink",
+    "redis"
+  ],
+  "author": "Patrick Zhang <patrickzhang@live.ca>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "~1.18.2",
+    "cors": "~2.8.4",
+    "express": "^4.17.1",
+    "express-http-context": "^1.2.3",
+    "helmet": "^3.13.0",
+    "http-shutdown": "~1.2.0",
+    "ioredis": "^3.2.2",
+    "node-forge": "^0.7.6",
+    "winston": "^2.4.2"
+  },
+  "devDependencies": {
+    "eslint": "^6.2.2",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "jasmine": "^3.2.0",
+    "jest": "^23.1.0",
+    "jest-junit": "^3.7.0",
+    "nodemon": "^1.17.3"
+  },
+  "pre-commit": [
+    "test"
+  ],
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ]
+  }
+}
