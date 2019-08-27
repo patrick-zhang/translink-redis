@@ -11,7 +11,7 @@ const request = require('./services/request');
 const catchAll = async (req, res) => {
   const { path, query } = req;
   const result = await request({ path, query });
-  res.send(result);
+  res.status(result.status).json(result.data);
 };
 
 api.get('*', catchAll);

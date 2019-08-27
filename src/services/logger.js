@@ -1,8 +1,6 @@
 // logging library using winston, which provides functions like log level, rotate file etc.
 // https://github.com/winstonjs/winston/tree/2.x
 
-const httpContext = require('express-http-context');
-
 const winston = require('winston');
 
 const config = require('../config');
@@ -17,35 +15,27 @@ const winstonLogger = new winston.Logger({
   ],
 });
 
-const formatMessage = (message) => {
-  const reqId = httpContext.get('reqId');
-  if (!reqId) {
-    return message;
-  }
-  return `${message} reqId: ${reqId}`;
-};
-
 const logger = {
   log: (level, message) => {
-    winstonLogger.log(level, formatMessage(message));
+    winstonLogger.log(level, message);
   },
   error: (message) => {
-    winstonLogger.error(formatMessage(message));
+    winstonLogger.error(message);
   },
   warn: (message) => {
-    winstonLogger.warn(formatMessage(message));
+    winstonLogger.warn(message);
   },
   verbose: (message) => {
-    winstonLogger.verbose(formatMessage(message));
+    winstonLogger.verbose(message);
   },
   info: (message) => {
-    winstonLogger.info(formatMessage(message));
+    winstonLogger.info(message);
   },
   debug: (message) => {
-    winstonLogger.debug(formatMessage(message));
+    winstonLogger.debug(message);
   },
   silly: (message) => {
-    winstonLogger.silly(formatMessage(message));
+    winstonLogger.silly(message);
   },
 };
 
