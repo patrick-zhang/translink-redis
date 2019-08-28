@@ -18,6 +18,9 @@ services:
      - TRANSLINK_BASE_URL=${TRANSLINK_BASE_URL}
      - API_KEY=${API_KEY}
      - LOG_LEVEL=${LOG_LEVEL}
+     - REDIS_HOST=${REDIS_HOST}
+     - REDIS_PORT=${REDIS_PORT}
+     - REDIS_EXPIRE_TIME=${REDIS_EXPIRE_TIME}
     volumes:
      - ./src:/api/src
   redis:

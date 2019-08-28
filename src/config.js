@@ -4,5 +4,6 @@ module.exports = {
   API_KEY: process.env.API_KEY,
   LOG_LEVEL: process.env.LOG_LEVEL || 'debug',
   REDIS_HOST: process.env.REDIS_HOST || 'redis',
-  REDIS_PORT: process.env.REDIS_HOST || 6379,
+  REDIS_PORT: Number(process.env.REDIS_PORT) || 6379,
+  REDIS_EXPIRE_TIME: Number(process.env.REDIS_EXPIRE_TIME) || 30,
 };

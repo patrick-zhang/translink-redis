@@ -5,6 +5,7 @@ const config = require('../config');
 const logger = require('./logger');
 
 const request = async (pathQuery) => {
+  logger.debug(`Request: ${pathQuery}`);
   const url = `${config.TRANSLINK_BASE_URL}/${pathQuery}`;
   const options = {
     url,
