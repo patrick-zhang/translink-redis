@@ -1,0 +1,28 @@
+# config file for docker compose, which is used for local development.
+# https://docs.docker.com/compose/compose-file/compose-file-v2/
+version: '2'
+services:
+  translink_service:
+    build:
+     context: ./
+     dockerfile: Dockerfile
+    links:
+     - redis
+    image: translink_service
+    ports:
+     - "3000:3000"
+    hostname: translink_service
+    container_name: translink_service
+    environment:
+     - API_PORT=${API_PORT}
+     - TRANSLINK_BASE_URL=${TRANSLINK_BASE_URL}
+     - API_KEY=${API_KEY}
+     - LOG_LEVEL=${LOG_LEVEL}
+    volumes:
+     - ./src:/api/src
+  redis:
+    image: redis:4.0.10-alpine
+    command: ["redis-server", "--appendonly", "yes"]
+    hostname: redis
+    logging:
+      driver: none

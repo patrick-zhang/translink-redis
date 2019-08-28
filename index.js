@@ -6,4 +6,7 @@ const config = require('./src/config');
 
 assert.ok(config.API_KEY, '\n API key not defined in environment variable API_KEY\n');
 
-api.listen(config.PORT);
+process
+  .on('SIGINT', () => { process.exit(); });
+
+api.listen(config.API_PORT);
