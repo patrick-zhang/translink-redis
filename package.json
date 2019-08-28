@@ -36,11 +36,5 @@
   },
   "pre-commit": [
     "test"
-  ],
-  "jest": {
-    "collectCoverage": true,
-    "collectCoverageFrom": [
-      "src/**/*.js"
-    ]
-  }
+  ]
 }

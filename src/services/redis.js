@@ -11,13 +11,15 @@ const redis = new Redis({
   host: config.REDIS_HOST,
 });
 
-redis.on('connect', (err) => {
+const connectHandler = (err) => {
   if (err) {
     logger.error(`Redis connection error: ${err}`);
   } else {
     logger.info('Redis connected');
   }
-});
+};
+
+redis.on('connect', connectHandler);
 
 const get = (key) => {
   const hash = hashUtil.toHash(key);
@@ -34,4 +36,5 @@ const set = (key, value) => {
 module.exports = {
   get,
   set,
+  connectHandler,
 };

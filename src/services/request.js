@@ -16,7 +16,7 @@ const request = async (pathQuery) => {
   };
   try {
     const result = await axios(options);
-    logger.debug(JSON.stringify(Object.keys(result)));
+    logger.debug('Request result:', JSON.stringify(Object.keys(result)));
     return result;
   } catch (e) {
     logger.logError(e);

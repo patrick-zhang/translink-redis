@@ -25,7 +25,7 @@ const getTranslinkInfo = async (req, res) => {
     }
     res.status(result.status).json(result.data);
   } catch (e) {
-    res.status(500).send(e.message);
+    res.status(500).json(e.message);
   }
 };
 

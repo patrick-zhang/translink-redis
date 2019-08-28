@@ -25,17 +25,11 @@ const logger = {
   warn: (message) => {
     winstonLogger.warn(message);
   },
-  verbose: (message) => {
-    winstonLogger.verbose(message);
-  },
   info: (message) => {
     winstonLogger.info(message);
   },
   debug: (message) => {
     winstonLogger.debug(message);
-  },
-  silly: (message) => {
-    winstonLogger.silly(message);
   },
 };
 
