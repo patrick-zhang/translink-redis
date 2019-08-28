@@ -7,7 +7,6 @@
     "start": "node ./index.js",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "pretest": "npm run lint",
     "test": "jest --silent"
   },
   "keywords": [
@@ -35,6 +34,7 @@
     "pre-commit": "^1.2.2"
   },
   "pre-commit": [
-    "test"
+    "test",
+    "lint"
   ]
 }

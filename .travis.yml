@@ -1,0 +1,13 @@
+language: node_js
+
+services:
+  - docker
+
+git:
+  depth: false
+
+install:
+  - docker build -t translink_service .
+
+script:
+  - docker ps -a
