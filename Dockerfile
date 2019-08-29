@@ -1,13 +1,18 @@
 # Docker config file to run the app in docker.
 # https://docs.docker.com/engine/reference/builder/#usage
 
-FROM node:10-alpine
+FROM node:12-alpine
 
 WORKDIR /api
 
 COPY package*.json ./
 
-RUN npm install -f
+RUN apk add --no-cache --virtual .gyp \
+        python \
+        make \
+        g++ \
+    && npm install \
+    && apk del .gyp
 
 COPY . .
 

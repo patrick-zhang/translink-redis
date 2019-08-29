@@ -20,7 +20,7 @@
     "axios": "^0.18.0",
     "body-parser": "~1.18.2",
     "cors": "~2.8.4",
-    "express": "^4.17.1",
+    "express": "^5.0.0-alpha.7",
     "ioredis": "^3.2.2",
     "node-forge": "^0.7.6",
     "winston": "^2.4.2"
