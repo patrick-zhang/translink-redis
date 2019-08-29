@@ -6,7 +6,7 @@ const urlUtil = require('../utils/url');
 
 const logger = require('../services/logger');
 
-const getTranslinkInfo = async (req, res) => {
+const getTranslinkInfo = async (req, res, next) => {
   const { path, query } = req;
   const pathQuery = urlUtil.getPathQuery(path, query);
   try {
@@ -25,7 +25,7 @@ const getTranslinkInfo = async (req, res) => {
     }
     res.status(result.status).json(result.data);
   } catch (e) {
-    res.status(500).json(e.message);
+    next(e);
   }
 };
 

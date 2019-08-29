@@ -18,10 +18,4 @@ describe('request', () => {
       expect(result).toEqual('value');
     });
   });
-  it('handle http failure', () => {
-    axios.mockImplementation(() => Promise.reject(new Error()));
-    return request('/abc').then((result) => {
-      expect(result.status).toEqual(500);
-    });
-  });
 });
