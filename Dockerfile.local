@@ -1,13 +1,11 @@
 # Docker config file to run the app in docker.
 # https://docs.docker.com/engine/reference/builder/#usage
 
-FROM node:12-alpine as base
+FROM node:12-alpine
 
 WORKDIR /api
 
 COPY package*.json ./
-
-FROM base as build
 
 RUN apk add --no-cache --virtual .gyp \
         python \
@@ -20,14 +18,6 @@ COPY . .
 
 RUN npm run test
 
-RUN npm run build
-
-FROM base as release
-
-RUN npm install --production
-
-COPY --from=build /api/dist/app.js .
-
 EXPOSE 3000
 
-ENTRYPOINT [ "node", "app.js" ]
+ENTRYPOINT [ "npm", "run", "dev" ]

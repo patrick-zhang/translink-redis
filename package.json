@@ -7,7 +7,8 @@
     "start": "node ./index.js",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "test": "jest --silent"
+    "test": "jest --silent",
+    "build": "webpack --mode production --config webpack.config.js"
   },
   "keywords": [
     "translink",
@@ -31,7 +32,10 @@
     "eslint-plugin-import": "^2.18.2",
     "jest": "^25.0.0",
     "nodemon": "^1.17.3",
-    "pre-commit": "^1.2.2"
+    "pre-commit": "^1.2.2",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7",
+    "webpack-node-externals": "^1.7.2"
   },
   "pre-commit": [
     "test",
