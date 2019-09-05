@@ -1,9 +1,9 @@
-const forge = require('node-forge');
+const crypto = require('crypto');
 
 const toHash = (key) => {
-  const md = forge.md.sha1.create();
-  md.update(key);
-  return md.digest().toHex();
+  const hash = crypto.createHash('md5');
+  hash.update(key);
+  return hash.digest('hex');
 };
 
 module.exports = {
