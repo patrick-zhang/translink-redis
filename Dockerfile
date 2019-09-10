@@ -28,6 +28,10 @@ RUN npm install --production
 
 COPY --from=build /api/dist/app.js .
 
+FROM gcr.io/distroless/nodejs as prod
+
+COPY --from=release . .
+
 EXPOSE 3000
 
-ENTRYPOINT [ "node", "app.js" ]
+CMD [ "/api/app.js" ]

@@ -1,3 +1,5 @@
+const { URLSearchParams } = require('url');
+
 const config = require('../config');
 
 const getPathQuery = (path, query) => {
