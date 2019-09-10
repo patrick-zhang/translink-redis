@@ -34,4 +34,6 @@ COPY --from=release . .
 
 EXPOSE 3000
 
+USER node
+
 CMD [ "/api/app.js" ]
