@@ -33,7 +33,7 @@
     "nodemon": "^1.17.3",
     "pre-commit": "^1.2.2",
     "webpack": "^4.39.3",
-    "webpack-cli": "^3.3.7",
+    "webpack-cli": "^3.3.12",
     "webpack-node-externals": "^1.7.2"
   },
   "pre-commit": [
